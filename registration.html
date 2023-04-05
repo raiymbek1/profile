@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>raiymbek</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+</head>
+
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f0f0f0;
+	}
+
+	form {
+		width: 400px;
+		margin: 50px auto;
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	h2 {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	input {
+		width: 94%;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		margin-right: 20px;
+	}
+
+	button {
+		background-color: #665de9;
+		color: #fff;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: #3e8e41;
+	}
+</style>
+
+<body>
+
+	<form>
+		<h2>Registration</h2>
+
+		<div class="form-group">
+			<label for="fullname">User Name</label>
+			<input type="text" id="fullname" name="fullname" required>
+		</div>
+
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required>
+		</div>
+
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+		</div>
+
+		<div class="form-group">
+			<label for="confirm-password">Confirm Password</label>
+			<input type="password" id="confirm-password" name="confirm-password" required>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" id="submit-btn">Register</button>
+		</div>
+	</form>
+
+
+	<script>
+		const form = document.querySelector('form');
+		const submitBtn = document.querySelector('#submit-btn');
+		const fullNameInput = document.querySelector('#fullname');
+		const emailInput = document.querySelector('#email');
+		const passwordInput = document.querySelector('#password');
+		const confirmPasswordInput = document.querySelector('#confirm-password');
+
+		submitBtn.addEventListener('click', function (e) {
+			e.preventDefault();
+
+			if (passwordInput.value !== confirmPasswordInput.value) {
+				alert('Passwords do not match');
+				return;
+			}
+
+			const formData = {
+				fullName: fullNameInput.value,
+				email: emailInput.value,
+				password: passwordInput.value,
+				confirmPassword: confirmPasswordInput.value
+			};
+
+			localStorage.setItem('formData', JSON.stringify(formData));
+
+			alert('Registration successful! Welcome, ' + fullNameInput.value);
+
+			form.reset();
+		});
+
+	</script>
+</body>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>raiymbek</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+</head>
+
+<body>
+
+	<!--	<iframe
+		src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1968.2690019811448!2d71.41704721491347!3d51.09080628596932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skz!4v1680347763718!5m2!1sru!2skz"
+		width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+		referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+	<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+		referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAvNi59TFkMSnFckoOvvXVPr8yLxr2STgA
+	    &q=Space+Needle,Seattle+WA">
+	</iframe>
+	-->
+
+	<iframe src="https://maps.google.com/maps?q=51.0886714, 71.4252249&z=15&output=embed" width="800" height="600"
+		frameborder="0" style="border:0"></iframe>
+
+	<!--
+	<div style="text-decoration:none; overflow:hidden;max-width:100%;width:500px;height:500px;">
+		<div id="my-map-display" style="height:100%; width:100%;max-width:100%;"><iframe
+				style="height:100%;width:100%;border:0;" frameborder="0"
+				src="https://www.google.com/maps/embed/v1/place?q=Astana+IT+University,+улица+Туркистан,+Астана,+Казахстан&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+		</div><a class="googlemaps-made" href="https://www.bootstrapskins.com/themes" id="enable-map-data">premium
+			bootstrap
+			themes</a>
+		<style>
+			#my-map-display img {
+				max-width: none !important;
+				background: none !important;
+				font-size: inherit;
+				font-weight: inherit;
+			}
+		</style>
+	</div>
+	-->
+	<button onclick="getLocation()">Show location</button>
+	<p id="demo"></p>
+
+	<script>
+		var x = document.getElementById("demo");
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+
+		function showPosition(position) {
+			x.innerHTML = "Latitude: " + position.coords.latitude +
+				"<br>Longitude: " + position.coords.longitude;
+		}
+	</script>
+</body>
